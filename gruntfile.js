@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 					banner: "/* Created by Art-Sites Studio art-sites.org */"
 				},
 				files: {
-					'assets/jquery.send.form.min.js': ['assets/jquery.send.form.js']
+					'assets/jquery.mult.min.js': ['assets/jquery.mult.js']
 				}
 			}
 		}
