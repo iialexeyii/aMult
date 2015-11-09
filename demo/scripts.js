@@ -1,8 +1,10 @@
 $(function(){
 	$.aMult({
-		input : "h1",
+		input : function(data){
+			$("h1").text(data);
+		},
 		dataBase : dataBaseTarget,
 		getRequest : "key",
-		defPhrase : "This phrase, if variable does not transmitted",
+		defData : "This phrase, if variable does not transmitted",
 	});
 })

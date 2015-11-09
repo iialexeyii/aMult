@@ -10,11 +10,11 @@
 			input : false,
 			dataBase : false,
 			getRequest : "request",
-			defPhrase : false,
+			defData : false,
 		}, params);
 		var request = '';
 		if (typeof $global === "undefined") {$global = {};};
-		if (s.dataBase && s.defPhrase) {
+		if (s.dataBase && s.defData) {
 			if (request = takeRequest()) {
 				 paste();
 			} else{
@@ -41,7 +41,13 @@
 		}
 		function paste () {
 			if (s.dataBase[request]) {
-				if (s.input) {$(s.input).html(s.dataBase[request]);};
+				if (s.input) {
+					if (typeof s.input == "function") {
+						s.input(s.dataBase[request])
+					}else{
+						$(s.input).html(s.dataBase[request])
+					}
+				};
 				$global.target = s.dataBase[request];
 				
 			} else{
@@ -49,8 +55,14 @@
 			};
 		}
 		function getDef () {
-			if (s.input) {$(s.input).html(s.defPhrase);};
-			$global.target = s.defPhrase;
+			if (s.input) {
+				if (typeof s.input == "function") {
+						s.input(s.defData)
+					}else{
+						$(s.input).html(s.defData)
+					}
+				};
+			$global.target = s.defData;
 		}
 	}
 })(jQuery)
